@@ -1,10 +1,13 @@
 #!/bin/bash
 set -e
-
+# debugging 
+echo "Execute first if statement ..."
 if [ -n "$GITHUB_EVENT_PATH" ];
 then
+    echo "Executing the event_path variable below "
     EVENT_PATH=$GITHUB_EVENT_PATH
 elif [ -f ./sample_push_event.json ];
+echo "Executing elif "
 then
     EVENT_PATH='./sample_push_event.json'
     LOCAL_TEST=true
