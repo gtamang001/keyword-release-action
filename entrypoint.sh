@@ -37,6 +37,8 @@ then
     then
         echo "## [TESTING] Keyword was found but no release was created."
     else
+        echo "Is this step being executed"
+        echo $DATA
         echo $DATA | http POST $URL | jq .
     fi
 # otherwise
