@@ -1,6 +1,10 @@
 #!/bin/bash
 set -e
 # debugging 
+echo "Debugging..."
+echo $GITHUB_EVENT_PATH
+echo "Github repository"
+echo $GITHUB_REPOSITORY
 echo "Execute first if statement ..."
 if [ -n "$GITHUB_EVENT_PATH" ];
 then
