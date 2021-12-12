@@ -9,6 +9,6 @@ jobs:
     - uses: actions/checkout@v1
     - uses: gtamang001/keyword-release-action@master
       env:
-        GITHUB_TOKEN: ${{ env.GITHUB_TOKEN }}
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
         args: 'FIXED'
