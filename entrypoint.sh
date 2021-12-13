@@ -41,12 +41,19 @@ then
     then
         echo "## [TESTING] Keyword was found but no release was created."
     else
-        echo "Is this step being executed"
-        echo $DATA
-        echo $DATA | http POST $URL | jq .
+        echo "Using curl now"
+        curl -X POST https://api/github.com/repos/$GITHUB_REPOSITORY/releases \
+        -H 'Authorization: $GITHUB_TOKEN' \
+        -H 'Content-Type: application/json'\
+        -d $DATA
+        # echo $DATA | http POST $URL | jq .
     fi
 # otherwise
 else
     # exit gracefully
     echo "Nothing to process."
+#     curl -X POST https://reqbin.com/echo/post/json
+#    -H 'Content-Type: application/json'
+#    -H 'Authorization: token my_access_token'
+#    -d '{"login":"my_login","password":"my_password"}'
 fi
