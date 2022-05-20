@@ -3,7 +3,7 @@ on:
   pull_request:
     types: [closed]
 env: 
-  VERSION: 0.1.0
+  VERSION: 0.3.0
 jobs:
   build:
     name: Create Release
