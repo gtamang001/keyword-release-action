@@ -1,6 +1,7 @@
 name: Release workflow 
-on: 
-  workflow_dispatch: 
+on:
+  pull_request_review:
+    types: [submitted]
 env: 
   VERSION: 1.0.0
 jobs:
