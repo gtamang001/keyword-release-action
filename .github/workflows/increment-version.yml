@@ -5,7 +5,7 @@ on:
       release-type:
         description: 'Type of release major, minor,path or prerelease'     
         required: true
-        default: 'minor' 
+        default: 'MINOR' 
         type: choice
         options:
         - MAJOR
@@ -23,7 +23,7 @@ jobs:
       - name: check the latest tag 
         run: |
           git describe --tags
-          RELEASE=${{github.events.inputs.release-type}}
+          RELEASE=${{github.event.inputs.release-type}}
           # if MAJOR increment major 
           # MINOR increment minor 
           # if PATH increment PATCH
