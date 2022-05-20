@@ -23,5 +23,29 @@ jobs:
       - name: check the latest tag 
         run: |
           git describe --tags
+          RELEASE=${{github.events.inputs.release-type}}
+          # if MAJOR increment major 
+          # MINOR increment minor 
+          # if PATH increment PATCH
+          if ["$RELEASE" == "MAJOR"]; then
+          PREVIOUS=$(git describe --tags | cut -d '-' -f 1 | cut -d '.' -f 1)
+          RELEASE_VERSION=$(expr $PREVIOUS + 1)
+          fi
+
+          if ["$RELEASE" == "MINOR"]; then
+          PREVIOUS=$(git describe --tags | cut -d '-' -f 1 | cut -d '.' -f 2)
+          RELEASE_VERSION=$(expr $PREVIOUS + 1)
+          fi
+
+          if ["$RELEASE" == "PATCH"]; then
+          PREVIOUS=$(git describe --tags | cut -d '-' -f 1 | cut -d '.' -f 3)
+          RELEASE_VERSION=$(expr $PREVIOUS + 1)
+          fi
+
+          echo "Finished version updating.."
+          echo "PREVIOUS VERSION IS $PREVIOUS"
+          echo "Updated version is $RELEASE and new version is $RELEASE_VERSION"
+          
+
 
       
