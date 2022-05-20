@@ -23,23 +23,26 @@ jobs:
       - name: check the latest tag 
         run: |
           git describe --tags
+          CURRENT_VERSION=$(git describe --tags | cut -d '-' -f 1)
           RELEASE=${{github.event.inputs.release-type}}
-          # if MAJOR increment major 
+          MAJOR=$(git describe --tags | cut -d '-' -f 1 | cut -d '.' -f 1)
+          MINOR=$(git describe --tags | cut -d '-' -f 1 | cut -d '.' -f 2)
+          PATCH=$(git describe --tags | cut -d '-' -f 1 | cut -d '.' -f 3)
           # MINOR increment minor 
           # if PATH increment PATCH
           if [ "$RELEASE" == "MAJOR" ]; then
-          PREVIOUS=$(git describe --tags | cut -d '-' -f 1 | cut -d '.' -f 1)
-          RELEASE_VERSION=$(expr $PREVIOUS + 1)
+          NEXT_MAJOR=$(expr $MAJOR + 1)
+          RELEASE_VERSION=$NEXT_MAJOR.$MINOR.$PATCH
           fi
 
           if [ "$RELEASE" == "MINOR" ]; then
-          PREVIOUS=$(git describe --tags | cut -d '-' -f 1 | cut -d '.' -f 2)
-          RELEASE_VERSION=$(expr $PREVIOUS + 1)
+          NEXT_MINOR=$(expr $PREVIOUS + 1)
+          RELEASE_VERSION=$MAJOR.$NEXT_MINOR.$PATCH
           fi
 
           if [ "$RELEASE" == "PATCH" ]; then
-          PREVIOUS=$(git describe --tags | cut -d '-' -f 1 | cut -d '.' -f 3)
-          RELEASE_VERSION=$(expr $PREVIOUS + 1)
+          RELEASE_VERSION=$MAJOR.$MINOR.$NEXT_PATCH
+          NEXT_PATCH=$(expr $PREVIOUS + 1)
           fi
 
           echo "Finished version updating.."
