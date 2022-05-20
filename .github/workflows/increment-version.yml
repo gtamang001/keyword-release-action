@@ -45,7 +45,8 @@ jobs:
           echo "Finished version updating.."
           echo "PREVIOUS VERSION IS $PREVIOUS"
           echo "Updated version is $RELEASE and new version is $RELEASE_VERSION"
-          
+        shell: bash
+
 
 
       
