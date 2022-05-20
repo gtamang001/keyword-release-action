@@ -1,0 +1,22 @@
+# Default values for spring boot yaml 
+replicaCount: 2
+image:
+  repository: artifacts-repo/repo/app:98789
+  pullPolicy: IfNotPresent
+  # Override the image tag
+  tag: ""
+imagePullSecrets:
+  - name: artifact-registry
+nameOverride:
+fullnameOverride: ""
+podAnnotation: {}
+service:
+  type: NodePort
+  port: 80
+hosts:
+  - host: hello.host.wellcome.com
+    paths:
+      - path: /
+        pathType: Prefix
+
+# end of this thing 

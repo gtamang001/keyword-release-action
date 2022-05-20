@@ -1,0 +1,26 @@
+name: Increment Version workflow 
+on: 
+  workflow_dispatch: 
+    inputs:
+    release-type:
+      description: 'Type of release major, minor,path or prerelease'     
+      required: true
+      default: 'minor' 
+      type: choice
+      options:
+      - MAJOR
+      - MINOR
+      - PATCH
+      - PR
+jobs: 
+  update-version: 
+    runs-on: ubuntu-latest
+    steps: 
+      - name: checkout code 
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: '0'
+      - name: check the latest tag 
+        run: |
+          git discribe --tags
+      
