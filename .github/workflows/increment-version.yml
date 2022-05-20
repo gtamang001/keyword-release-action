@@ -27,17 +27,17 @@ jobs:
           # if MAJOR increment major 
           # MINOR increment minor 
           # if PATH increment PATCH
-          if ["$RELEASE" == "MAJOR"]; then
+          if [ "$RELEASE" == "MAJOR" ]; then
           PREVIOUS=$(git describe --tags | cut -d '-' -f 1 | cut -d '.' -f 1)
           RELEASE_VERSION=$(expr $PREVIOUS + 1)
           fi
 
-          if ["$RELEASE" == "MINOR"]; then
+          if [ "$RELEASE" == "MINOR" ]; then
           PREVIOUS=$(git describe --tags | cut -d '-' -f 1 | cut -d '.' -f 2)
           RELEASE_VERSION=$(expr $PREVIOUS + 1)
           fi
 
-          if ["$RELEASE" == "PATCH"]; then
+          if [ "$RELEASE" == "PATCH" ]; then
           PREVIOUS=$(git describe --tags | cut -d '-' -f 1 | cut -d '.' -f 3)
           RELEASE_VERSION=$(expr $PREVIOUS + 1)
           fi
