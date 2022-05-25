@@ -16,15 +16,15 @@ jobs:
       - name: get current version 
         run: |
           VERSION=$(git describe --tags | cut -d '-' -f 1)
-          export $VERSION
+          export NEW_VERSION=0.4.0
       - name: Create Release
         id: create_release
         uses: actions/create-release@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # This token is provided by Actions, you do not need to create your own token
         with:
-          tag_name: ${VERSION}
-          release_name: Release ${VERSION}
+          tag_name: ${NEW_VERSION}
+          release_name: Release ${NEW_VERSION}
           body_path: ${{github.workspace}}/changelog.md
           draft: false
           prerelease: false
