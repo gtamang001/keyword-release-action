@@ -15,15 +15,15 @@ jobs:
           fetch-depth: '0'
       - name: get current version 
         run: |
-          VERSION=$(git describe --tags | cut -d '-' -f 1)
+          # VERSION=$(git describe --tags | cut -d '-' -f 1)
           touch version.txt 
           echo "0.4.0" >> version.txt
+          export VERSION=$(cat version.txt)
       - name: Create Release
         id: create_release
         uses: actions/create-release@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # This token is provided by Actions, you do not need to create your own token
-          VERSION: $(cat version.txt)
         with:
           tag_name: $VERSION
           release_name: Release $VERSION
@@ -41,4 +41,5 @@ jobs:
       - name: check the last tag 
         run: |
           version=$(git describe --tags)
+          echo $version
 
