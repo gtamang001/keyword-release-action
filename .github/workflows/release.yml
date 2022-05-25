@@ -17,16 +17,16 @@ jobs:
         run: |
           # VERSION=$(git describe --tags | cut -d '-' -f 1)
           touch version.txt 
-          echo "0.4.0" >> version.txt
-          export VERSION=$(cat version.txt)
+          echo "0.4.0" >> $GITHUB_ENV
+
       - name: Create Release
         id: create_release
         uses: actions/create-release@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # This token is provided by Actions, you do not need to create your own token
         with:
-          tag_name: $VERSION
-          release_name: Release $VERSION
+          tag_name: ${{env.GITHUB_ENV}}
+          release_name: Release ${{env.GITHUB_ENV}}
           body_path: ${{github.workspace}}/changelog.md
           draft: false
           prerelease: false
