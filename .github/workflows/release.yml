@@ -16,7 +16,8 @@ jobs:
       - name: get current version 
         run: |
           # VERSION=$(git describe --tags | cut -d '-' -f 1)
-          touch version.txt 
+          touch version.txt
+          echo "0.4.0" >> $VERSION
           echo "0.4.0" >> $VERSION
 
       - name: Create Release
