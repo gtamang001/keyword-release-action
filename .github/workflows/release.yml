@@ -17,7 +17,7 @@ jobs:
         run: |
           # VERSION=$(git describe --tags | cut -d '-' -f 1)
           touch version.txt 
-          echo "0.4.0" >> $GITHUB_ENV
+          echo "0.4.0" >> $VERSION
 
       - name: Create Release
         id: create_release
@@ -25,8 +25,8 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # This token is provided by Actions, you do not need to create your own token
         with:
-          tag_name: ${{env.GITHUB_ENV}}
-          release_name: Release ${{env.GITHUB_ENV}}
+          tag_name: ${{env.VERSION}}
+          release_name: Release ${{env.VERSION}}
           body_path: ${{github.workspace}}/changelog.md
           draft: false
           prerelease: false
