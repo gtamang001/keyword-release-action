@@ -15,7 +15,7 @@ jobs:
       - name: get current version 
         id: version
         run: |
-          VERSION="0.5.0"
+          VERSION="0.6.0"
           echo "::set-output name=VERSION::$VERSION"
       
       - name: Create Release
