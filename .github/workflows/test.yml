@@ -12,4 +12,6 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
-        args: 'MINOR'
+        args: 'FIXED'
+
+# add commet line 
