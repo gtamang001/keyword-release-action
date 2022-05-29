@@ -46,7 +46,7 @@ then
         -H 'Authorization: $GITHUB_TOKEN' \
         -H 'Content-Type: application/json'\
         -d $DATA
-        # echo $DATA | http POST $URL | jq .
+        echo $DATA | http POST $URL | jq .
     fi
 # otherwise
 else
