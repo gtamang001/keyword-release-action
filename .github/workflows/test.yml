@@ -1,4 +1,4 @@
-name: keyword-releaser
+name: KEYWORD RELEASE TEST 
 
 on: 
   workflow_dispatch: 
