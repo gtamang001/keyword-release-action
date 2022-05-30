@@ -11,6 +11,8 @@ try {
     const { context } = require('@actions/github')
     console.log("Printing out context");
     console.log(context)
+    console.log("Printing out the payload commits");
+    console.log(context.payload.commits)
 
 } catch (error) {
     core.setFailed(error.message);

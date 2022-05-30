@@ -8873,6 +8873,8 @@ try {
     const { context } = __nccwpck_require__(3134)
     console.log("Printing out context");
     console.log(context)
+    console.log("Printing out the payload commits");
+    console.log(context.payload.commits)
 
 } catch (error) {
     core.setFailed(error.message);
