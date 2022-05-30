@@ -43,6 +43,7 @@ then
         echo "## [TESTING] Keyword was found but no release was created."
     else
         echo "Using curl now to run post"
+        echo "Posting the data"
         # curl -X POST https://api/github.com/repos/$GITHUB_REPOSITORY/releases \
         # -H 'Authorization: $GITHUB_TOKEN' \
         # -H 'Content-Type: application/json'\
