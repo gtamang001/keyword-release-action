@@ -1,0 +1,25 @@
+{
+  "name": "keyword-release-action",
+  "version": "1.0.0",
+  "description": "The Keyword Releaser will create a release based on the keyword specified in the arguments.",
+  "main": "index.js",
+  "scripts": {
+    "build": "ncc build index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gtamang001/keyword-release-action.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gtamang001/keyword-release-action/issues"
+  },
+  "homepage": "https://github.com/gtamang001/keyword-release-action#readme",
+  "dependencies": {
+    "@actions/core": "^1.8.2",
+    "@actions/github": "^5.0.3"
+  }
+}

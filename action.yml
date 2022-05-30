@@ -1,8 +1,16 @@
-name: 'Keyword Releaser 9000'
+name: 'My Keyword Release Action'
 description: 'Creates releases based on a keyword'
+inputs: 
+   keyword: 
+      description: 'Keyword to check against'
+      required: true 
+      default: 'FIXED'
+   GITHUB_TOKEN: 
+      description: 'Github Token'
+      require: true
 runs:
-   using: 'docker'
-   image: 'Dockerfile'
+   using: 'node16'
+   main: 'dist/index.js'
 branding:
    icon: 'gift'
    color: 'blue'
