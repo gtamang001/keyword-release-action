@@ -1,9 +1,8 @@
 name: Release workflow 
 on:
-  pull_request:
-    types: [closed]
-env: 
-  VERSION: 0.3.0
+  push: 
+    branches: 
+      - develop-paused
 jobs:
   build:
     name: Create Release
@@ -14,17 +13,18 @@ jobs:
         with: 
           fetch-depth: '0'
       - name: get current version 
+        id: version
         run: |
-          VERSION=$(git describe --tags | cut -d '-' -f 1)
-          export NEW_VERSION=0.4.0
+          VERSION="0.6.0"
+          echo "::set-output name=VERSION::$VERSION"
+      
       - name: Create Release
-        id: create_release
         uses: actions/create-release@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # This token is provided by Actions, you do not need to create your own token
         with:
-          tag_name: ${NEW_VERSION}
-          release_name: Release ${NEW_VERSION}
+          tag_name: ${{steps.version.outputs.VERSION}}
+          release_name: Release ${{steps.version.outputs.VERSION}}
           body_path: ${{github.workspace}}/changelog.md
           draft: false
           prerelease: false
@@ -39,4 +39,5 @@ jobs:
       - name: check the last tag 
         run: |
           version=$(git describe --tags)
+          echo $version
 

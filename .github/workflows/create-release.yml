@@ -1,7 +1,9 @@
-name: keyword-releaser
+name: KEYWORD RELEASE TEST 
 
 on: 
-  workflow_dispatch: 
+  push:
+    branches: 
+      - develop 
 
 jobs:
   build:
@@ -12,4 +14,6 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
-        args: 'MINOR'
+        args: 'FIXED'
+
+# add commet line 

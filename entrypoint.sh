@@ -13,6 +13,7 @@ then
 elif [ -f ./sample_push_event.json ];
 echo "Executing elif "
 then
+    echo "Executing setting up EVENT_PATH"
     EVENT_PATH='./sample_push_event.json'
     LOCAL_TEST=true
 else
@@ -46,7 +47,7 @@ then
         -H 'Authorization: $GITHUB_TOKEN' \
         -H 'Content-Type: application/json'\
         -d $DATA
-        # echo $DATA | http POST $URL | jq .
+        echo $DATA | http POST $URL | jq .
     fi
 # otherwise
 else
