@@ -13,6 +13,7 @@ try {
     console.log(context)
     console.log("Printing out the payload commits");
     console.log(context.payload.commits)
+    // adding comments for checking the values of commits object
 
 } catch (error) {
     core.setFailed(error.message);
