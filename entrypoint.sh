@@ -42,11 +42,11 @@ then
     then
         echo "## [TESTING] Keyword was found but no release was created."
     else
-        echo "Using curl now"
-        curl -X POST https://api/github.com/repos/$GITHUB_REPOSITORY/releases \
-        -H 'Authorization: $GITHUB_TOKEN' \
-        -H 'Content-Type: application/json'\
-        -d $DATA
+        echo "Using curl now to run post"
+        # curl -X POST https://api/github.com/repos/$GITHUB_REPOSITORY/releases \
+        # -H 'Authorization: $GITHUB_TOKEN' \
+        # -H 'Content-Type: application/json'\
+        # -d $DATA
         echo $DATA | http POST $URL | jq .
     fi
 # otherwise
