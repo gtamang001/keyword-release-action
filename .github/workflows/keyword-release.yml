@@ -3,7 +3,7 @@ name: KEYWORD RELEASE TEST
 on: 
   push:
     branches: 
-      - develop 
+      - develop -pasuse
 # trigger commits 
 jobs:
   build:

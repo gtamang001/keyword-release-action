@@ -2,7 +2,7 @@ name: Release workflow
 on:
   push: 
     branches: 
-      - develop-paused
+      - develop
 jobs:
   build:
     name: Create Release
@@ -15,7 +15,7 @@ jobs:
       - name: get current version 
         id: version
         run: |
-          VERSION="0.6.0"
+          VERSION="is-it-across"
           echo "::set-output name=VERSION::$VERSION"
       
       - name: Create Release
