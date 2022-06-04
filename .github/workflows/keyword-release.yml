@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v1
-    - uses: gtamang001/keyword-release-action@master
+    - uses: gtamang001/keyword-release-action@develop
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
