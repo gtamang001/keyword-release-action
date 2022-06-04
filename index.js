@@ -11,8 +11,8 @@ try {
     const { context } = require('@actions/github')
     console.log("Printing out context");
     console.log(context)
-    console.log("Printing out the payload commits");
-    console.log(context.payload.commits)
+    console.log("Printing out the payload commit message");
+    console.log(context.payload.commits.message)
     // adding comments for checking the values of commits object
 
 } catch (error) {
