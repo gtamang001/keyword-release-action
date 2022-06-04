@@ -12,7 +12,7 @@ try {
     console.log("Printing out context");
     console.log(context)
     console.log("Printing out the payload commit message");
-    console.log(context.payload.commits.message)
+    console.log(context.payload.head_commit.message)
     // adding comments for checking the values of commits object
 
 } catch (error) {
