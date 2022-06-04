@@ -2,7 +2,7 @@ name: Release workflow
 on:
   push: 
     branches: 
-      - develop
+      - develop-pause 
 jobs:
   build:
     name: Create Release
