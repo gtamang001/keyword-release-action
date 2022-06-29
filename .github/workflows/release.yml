@@ -15,7 +15,7 @@ jobs:
       - name: get current version 
         id: version
         run: |
-          VERSION="is-it-across"
+          VERSION="8.0.0"
           echo "::set-output name=VERSION::$VERSION"
       
       - name: Create Release
